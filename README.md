@@ -1,18 +1,20 @@
 # Stockria Print Helper — User Guide
 
-Stockria Print Helper is a small desktop app for Mac. Install it on the
-computer connected to your label printer. When you click Print in
-Stockria, Print Helper takes the label, renders it sharp, and sends it
-straight to your printer — no OS print dialog, no barcode artifacts, no
-multi-page overflow.
+Stockria Print Helper is a small desktop app for Mac and Windows.
+Install it on the computer connected to your label printer. When you
+click Print in Stockria, Print Helper takes the label, renders it
+sharp, and sends it straight to your printer — no OS print dialog, no
+barcode artifacts, no multi-page overflow.
 
-This guide covers Mac only. A Windows version is coming.
+This guide covers both operating systems. Where the steps differ,
+Mac and Windows get their own sub-section.
 
 ---
 
 ## What you need
 
-- A Mac running macOS 12 (Monterey) or newer.
+- A Mac running macOS 12 (Monterey) or newer, **or** a Windows 10
+  or Windows 11 PC.
 - A Stockria account with sign-in details.
 - A label printer — plugged in by USB or on your Wi-Fi / ethernet.
 - About 2 minutes.
@@ -33,17 +35,35 @@ feed is configured.
 
 ## 2. Install it
 
+### 2A. On a Mac
+
 1. Open the `.dmg` you just downloaded.
 2. A window opens with the Print Helper icon. **Drag it into the
    Applications folder** shown next to it.
 3. Close the window. You can eject the `.dmg` from Finder's sidebar.
 
+### 2B. On Windows
+
+1. The download is a file named something like `Stockria-Print-
+   Helper-Setup-0.0.6.exe`. It lands in your **Downloads** folder.
+2. Double-click it to run the installer. Before it opens, Windows
+   will show a blue warning screen — that's expected. See section
+   3B for how to get past it (takes two clicks).
+3. After you allow it to run, the installer asks where to install
+   the app. The default location is fine. Click **Next**, then
+   **Install**, then **Finish**.
+4. You'll find **Stockria Print Helper** in your Start menu.
+
 ---
 
 ## 3. First launch (important)
 
-The alpha version isn't code-signed by Apple yet. macOS will complain
-the first time. You only need to do this once.
+The alpha version isn't code-signed yet, so both Mac and Windows will
+warn you the first time. Neither warning means the app is broken —
+they mean your OS hasn't seen a signature it recognises. You only
+need to do the extra clicks once. After that, the app opens normally.
+
+### 3A. On a Mac
 
 1. Open **Applications** in Finder.
 2. **Right-click** (or Control-click) on **Stockria Print Helper** →
@@ -51,12 +71,38 @@ the first time. You only need to do this once.
 3. A dialog appears: "macOS cannot verify the developer..." Click
    **Open** again.
 
-The app launches. macOS remembers your choice. From now on you can open
-it the normal way.
+The app launches. macOS remembers your choice. From now on you can
+open it the normal way.
 
 If you just double-click without right-clicking first, macOS shows a
 red warning and refuses to open. Close the warning and follow the
 right-click method above.
+
+### 3B. On Windows
+
+When you double-click the installer, Windows shows a **full blue
+screen** that says:
+
+> **Windows protected your PC.** Microsoft Defender SmartScreen
+> prevented an unrecognized app from starting. Running this app might
+> put your PC at risk.
+
+The only button you see is **Don't run**. Do not click it. Instead:
+
+1. Click the small link **"More info"** in the middle of the blue
+   screen. The screen expands and shows the app name and publisher.
+2. A second button appears at the bottom — **"Run anyway"**. Click
+   it.
+3. The installer opens. Follow the normal Install / Next / Finish
+   prompts.
+
+Windows remembers your approval. From now on the installer and the
+installed app open without the blue screen.
+
+**If Windows Defender blocks the file outright** (rare, usually
+happens with very fresh uploads), open **Windows Security → Virus &
+threat protection → Protection history**, find the blocked file,
+click **Actions → Allow on device**, then re-run the installer.
 
 ---
 
@@ -130,8 +176,8 @@ Print button when Print Helper is running. If you see it, prints go
 through Print Helper automatically — no browser print dialog.
 
 If the badge isn't there, the browser uses its own print dialog
-instead. Check that Print Helper is still running (look at your Mac's
-menu bar — see section 9).
+instead. Check that Print Helper is still running (look for its tray
+icon — see section 9).
 
 ---
 
@@ -167,10 +213,17 @@ Keyboard: `Cmd`+`S` saves without closing.
 
 ---
 
-## 9. The menu-bar icon
+## 9. The tray icon
 
-Print Helper runs quietly in the background. Look at the top of your
-screen for a small icon in the Mac menu bar.
+Print Helper runs quietly in the background. Find its icon:
+
+- **Mac:** top of your screen in the **menu bar** (the strip next to
+  the clock on the right).
+- **Windows:** bottom-right of your screen in the **system tray**
+  (next to the clock). If you don't see it, click the small **up-
+  arrow** to expand hidden icons — Windows often hides new tray
+  icons by default. You can drag the icon back into the always-
+  visible row if you want.
 
 Click it for quick actions:
 
@@ -219,9 +272,23 @@ stay.
 
 ## 12. Something's wrong — what to do
 
-### The app won't open on first launch
+### The app won't open on first launch (Mac)
 
-You didn't right-click → Open the first time. Go back to section 3.
+You didn't right-click → Open the first time. Go back to section 3A.
+
+### The installer is blocked with "Windows protected your PC" (Windows)
+
+That's the SmartScreen warning — expected for unsigned alpha builds.
+Click the small **"More info"** link in the middle of the blue
+screen, then **"Run anyway"**. Full walkthrough in section 3B.
+
+### Windows Defender flagged the installer as a threat
+
+Because the `.exe` isn't yet signed with an EV code-signing
+certificate — we're still in alpha. Open **Windows Security → Virus
+& threat protection → Protection history**, find the blocked file,
+click **Actions → Allow on device**, then re-run the installer.
+Signed builds (coming soon) won't hit this.
 
 ### My printer isn't in the list after Scan
 
@@ -252,11 +319,14 @@ stock in millimetres. A 2×1 inch label = 51×25 mm.
 Look for the green "Print Helper connected" badge on the Labels page
 in Stockria. If it's missing:
 
-1. Check Print Helper is running — look for the menu-bar icon.
-2. Make sure the Mac running Stockria in the browser is the **same
-   Mac** running Print Helper (or on the same Wi-Fi network).
-3. Quit Print Helper from the menu-bar icon, re-open it from
-   Applications. Wait 10 seconds. Refresh Stockria.
+1. Check Print Helper is running — look for its tray icon (Mac:
+   menu bar; Windows: system tray, see section 9).
+2. Make sure the computer running Stockria in the browser is the
+   **same computer** running Print Helper (or on the same Wi-Fi
+   network).
+3. Quit Print Helper from the tray icon, re-open it (from
+   Applications on Mac, Start menu on Windows). Wait 10 seconds.
+   Refresh Stockria.
 
 ### I want to un-pair a device / log Print Helper out
 
